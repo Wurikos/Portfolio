@@ -1,0 +1,32 @@
+.nav__list{
+    display: flex;
+    align-items: center;
+    
+}
+
+
+.nav__item{
+    font-weight: 400;
+    margin-right: 60px;
+    &:last-child{
+        margin-right: 0px;
+    }
+}
+.nav__link{
+    
+    color: #e4e3e2;
+    text-decoration: none;
+}
+.nav__item a:after{
+    background-color: #ff9a00;;
+    display:block;
+    content:'';
+    height:3px;
+    width: 0%;
+    transition:width .3s ease-in-out;
+}
+
+.nav__item a:hover:after,
+.nav__item a:focus:after {
+    width: 100%;
+}

@@ -4,36 +4,240 @@ include ./mixins.pug
 html(lang="en")
   head
     meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
+      .welcome__wrapper
+
+        section.welcome
+          .container.welcome__container
+            header.welcome__header
+              .welcome__logo
+                .logo СА
+
+              .welcome__menu
+                nav.nav
+                  - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a(href="").nav__link #{item}
+
+              .welcome__links
+                - var icons = ['insta', 'vk', 'github']
+                ul.socials
+                  each item in icons
+                    li.socials__item
+                      a(href="").social__link
+                        +icon(`${item}`, 'social__icon')
+
+
+            .welcome__content
+              .user-info
+                h1.user-info__desc Личный сайт веб разработчика
+                .user-info__username Сулин Александр
+
+            .welcome__btn
+              .scroll-content Скролл
+              .scroll-down-btns 
+                +icon('scroll', 'scroll-down')
+
+        section.about
+          .container.about__container
+            .about__left
+              .user
+                .avatar.user__avatar
+                  +image("content/user.jpg", "avatar__pic")
+                ul.user__desc
+                  -
+                    var items = [
+                      ['Проживаю:','Ростов-на-Дону'],
+                      ['Возраст:','24 года'],
+                      ['Родился:','28 января 1996'],
+                    ]
+                  each item in items
+                    li.user__desc-item
+                      .user__key  #{item[0]}
+                      .user__value #{item[1]}
+            .about__right
+              h4.about__prolog Привет, меня зовут
+              h2.about__title Сулин Александр
+              .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+              .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!  
+      section.skills
+        .skills__img
+          +image('content/hands.png','skills-pic')
+        .container.skills__container
+          .skills__title
+            h2.section-title.skills__title-text Чем я могу быть полезен вам
+            .skills__desc 
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
+        ul.user-skills
+          - 
+            var skills = [
+              ['Front-end', ['HTML5', 'CSS3', 'javascript','jquery и Vue.js']],
+              ['Workflow', ['Git', 'Terminal', 'Gulp','Webpack']],
+            ]
+          each item in skills 
+           li.user-skills__item.skills-row 
+            h3.skills-row__title #{item[0]}
+            ul.skills-row__list
+              each skill in item[1]
+                li.skills-row__item
+                  .skill
+                    svg(viewBox="0 0 100 100" preserveAspectRatio="none").skill__shape
+                      circle(r="47" cx="50" cy="50" ).skill__circle.skill__circle--position--under
+                      circle(r="47" cx="50" cy="50" stroke-dasharray=251).skill__circle.skill__circle--position--above
+                      linear-gradient()
+                    .skill__title #{skill}
+      section.works
+        .container.works__container
+          h2.section-title Мои работы
+          .works__slider
+            .works__left
+              .slider
+                +image('content/1.jpg','slider__fillpic')
+                .slider__preview
+                  ul.previews 
+                    - for (var i = 0; i < 4; i++)
+                      li.previews__item
+                        +image('content/1.jpg','previews__pic')
+                .slider__buttons
+                  .slider__button 
+                    button.slider-buttons__item.slider-buttons__item--slide--prev
+                      +icon('sa','slider__button-arrow')
+                    button.slider-buttons__item.slider-buttons__item--slide--next
+                      +icon('sa','slider__button-arrow')
+              .slider__number 2      
+            .works__right
+              .works__tags
+                  ul.tags
+                    - var tags = ['HTML','CSS','javascript']
+                      each tag in tags
+                        li.tags__item #{tag}
+              .works__text
+                h3.works__title Сайт школы образования
+                .works__desc-text
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                a(href="#").works__desc-link
+                  +icon("link", "works__desc-icon")
+                  .works-link__text Посмотреть сайт
+                  
+      section.aboutme
+        .container.aboutme__container
+          .aboutme__head
+            h3.aboutme__title Что обо мне говорят
+            .aboutme__buttn-group
+              button.aboutme__buttons.aboutme__buttons_prev
+                +icon('sa', 'aboutme__buttons-icon')
+              button.aboutme__buttons.aboutme__buttons_next
+                +icon('sa', 'aboutme__buttons-icon')
+
+          .aboutme__wrapp
+            .aboutme__left
+              
+              .aboutme__desc
+                +icon('quote','aboutme__icon')
+                .aboutme__text
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!  
+              .aboutme__mentor
+                .mentor__avatar
+                   +image('content/mentor/koval.jpg','mentor__avatar-pic')
+                .mentor__info
+                  .mentor__name Ковальчук Дмитрий
+                  .mentor__ps Основатель Loftschool
+            .aboutme__right
+              .aboutme__btn
+              .aboutme__desc
+                +icon('quote','aboutme__icon')
+                .aboutme__text
+                  p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+              .aboutme__mentor
+                .mentor__avatar
+                  +image('content/mentor/vladmr.jpg','mentor__avatar-pic')
+                .mentor__info
+                  .mentor__name Владимир Сабанцев
+                  .mentor__ps Преподаватель
+
+          .aboutme__form
+            h3.aboutme__title Связаться со мной
+            form.form__elemm(action="")
+              .form__row
+                .form__block
+                  label.form__title Введите ваше имя
+                  .form__case
+                    +icon('Avatar','form__block-icon')
+                    input.form__input(type="text" placeholder="Имя" name="name")
+                .form__block
+                  label.form__title Введите ваш email
+                  .form__case
+                    +icon('envelope','form__block-icon')
+                    input.form__input(type="text" placeholder="@email" name="name")  
+              .form__desc
+                label.form__title Сообщение к письму
+                .form__case
+                  +icon('Chat','form__block-icon')
+                  input.form__input.form__input--width(type="textarea" placeholder="Требуется ваша помощь в создании сайта.Интересует сроки и цена вопроса" name='msge') 
+              .form__btn
+                button.form__button Отправить
+      section.footer
+        .container.footer__container
+          .footer__left
+            .footer__year
+              .footer__year-text © 2019
+            .developer
+              .developer-username Сулин Александр
+              .developer-desc Личный сайт веб разработчика
+          .footer__right
+            .footer__menu
+              nav.nav
+                - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться']
+                    ul.nav__list
+                      each item in menu
+                        li.nav__item
+                          a.nav__link #{item}
+            .footer__content
+              .footer__content-block
+                .footer__content-text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                .footer__socials
+                  - var icons = ['insta', 'vk', 'github']
+                    ul.socials
+                      each item in icons
+                        li.socials__item.footer__socials-item
+                          a(href="#").socials__link
+                            +icon(`${item}`, 'footer__socials-icon')
+              .footer__quote
+                .footer__quote-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                .footer__quote-author Martin Golding
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //- +image('content/user.jpg', 'user-pic')
         //- +icon('link', 'link-class')
