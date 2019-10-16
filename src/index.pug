@@ -103,7 +103,7 @@ html(lang="en")
                 .slider__preview
                   ul.previews 
                     - for (var i = 0; i < 4; i++)
-                      li.previews__item
+                      li.previews__item(class=`${ i === 0 ? 'previews__active' : ''}`)
                         +image('content/1.jpg','previews__pic')
                 .slider__buttons
                   .slider__button 
