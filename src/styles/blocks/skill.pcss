@@ -5,6 +5,14 @@
     stroke: black;
     stroke-width: 4px;
     transform: rotate(180deg);
+      @include tablets{
+       width: 100px;
+       height:  100px;
+    }
+    @include phones{
+       width: 110px;
+       height:  110px;
+     }
 }
 .skill{
     position: relative;

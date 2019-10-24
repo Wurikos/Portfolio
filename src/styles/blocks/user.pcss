@@ -9,6 +9,11 @@
 .user-info{
     display: flex;
     padding: 0 25%;
+
+    @include tablets{
+        flex-direction: column;
+        text-align: center;
+    }
     
 }
 
@@ -17,12 +22,21 @@
     font-weight: 600;
     font-size: 18px;
     color: #807c75;   
+
+    @include tablets{
+       padding: 0 70px 20px 70px;
+       line-height: 1.9;
+    }
 }
 .user-info__username{
     line-height: 0.9;
     font-size: 72px;
     color: white;
     font-weight: 700;
+
+    @include phones{
+        font-size: 62px;
+    }
 
 }
 .user__key{
@@ -35,6 +49,9 @@
     padding-left: 80px;
     font-weight: 800;
     font-size: 16px;
+    @include tablets{
+         padding-left: 30px;
+    }
 }
 .user__desc-item{
     display: flex;

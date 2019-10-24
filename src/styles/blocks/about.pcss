@@ -1,15 +1,35 @@
 
 .about{
      background: url('../images/content/bg/about.jpg') no-repeat center top /cover;
-     padding: 165px 0;
+     padding: 165px 0px;
+
+     @include desktop{
+        padding: 165px 20px;
+     }
+       @include tablets{
+        padding: 165px 0px;
+     }
+     @include phones{
+        padding: 50px 0px;
+     }
+     
 }
 .about__container{
     display: flex;
     justify-content: center;
+    z-index: 5;
+    
+    @include phones{
+        flex-direction: column;
+     }
 }
 
 .about__left{
  width: 290px;
+ z-index: 20;
+ @include tablets{
+        padding-bottom: 50px;
+     }
 }
 
 .about__prolog{
@@ -25,8 +45,12 @@
 }
 .about__left, .about__right{
     width: 50%;
+    @include tablets{
+        width: 100%;
+     }
 }
 .about__right{
+    z-index: 20;
     color: #9a9895;
 }
 .about__text {

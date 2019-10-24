@@ -10,6 +10,8 @@ html(lang="en")
   body
     .wrapper
       .welcome__wrapper
+        include ./templates/components/parallax.pug
+        
 
         section.welcome
           .container.welcome__container
@@ -74,25 +76,7 @@ html(lang="en")
             .skills__desc 
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
-        ul.user-skills
-          - 
-            var skills = [
-              {title: 'Front-end', skills: [{name: 'HTML5', percent: 75}, {name: 'CSS3', percent: 23}, {name: 'JavaScript', percent: 45}, {name: 'jQuery и VueJS', percent: 67}]},
-              {title: 'Workflow', skills: [{name: 'GIT', percent: 75}, {name: 'Terminal', percent: 23}, {name: 'Gulp', percent: 45}, {name: 'Webpack', percent: 67}]}
-            ]
-          each item in skills 
-           li.user-skills__item.skills-row 
-            h3.skills-row__title #{item.title}
-            ul.skills-row__list
-              each skill in item.skills
-                li.skills-row__item
-                  .skill
-                    svg(viewBox="0 0 100 100" ).skill__shape
-                      - var r= 47
-                      circle(r=r cx="50" cy="50" ).skill__circle.skill__circle--position--under
-                      circle(r=r cx="50" cy="50" stroke-dasharray=`${2 * Math.PI * r}` stroke-dashoffset=`${2 * Math.PI * r * (100 - skill.percent) / 100}`).skill__circle.skill__circle--position--above
-                      linear-gradient()
-                    .skill__title #{skill.name}
+          #skills-component
       section.works
         .container.works__container
           h2.section-title Мои работы
@@ -124,44 +108,30 @@ html(lang="en")
                   p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                 a(href="#").works__desc-link
                   +icon("link", "works__desc-icon")
-                  .works-link__text Посмотреть сайт
-                  
-      section.aboutme
+                  .works-link__text Посмотреть сайт            
+      section.aboutme(@click="checkArrows" @touchend="checkArrows")
         .container.aboutme__container
           .aboutme__head
             h3.aboutme__title Что обо мне говорят
             .aboutme__buttn-group
-              button.aboutme__buttons.aboutme__buttons_prev
+              button.aboutme__buttons.aboutme__buttons-prev(@click="previous" :disabled = 'true')
                 +icon('sa', 'aboutme__buttons-icon')
-              button.aboutme__buttons.aboutme__buttons_next
+              button.aboutme__buttons.aboutme__buttons-next(@click="next" :disabled = 'false')
                 +icon('sa', 'aboutme__buttons-icon')
 
-          .aboutme__wrapp
-            .aboutme__left
-              
-              .aboutme__desc
-                +icon('quote','aboutme__icon')
-                .aboutme__text
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!  
-              .aboutme__mentor
-                .mentor__avatar
-                   +image('content/mentor/kov.png','mentor__avatar-pic')
-                .mentor__info
-                  .mentor__name Ковальчук Дмитрий
-                  .mentor__ps Основатель Loftschool
-            .aboutme__right
-              .aboutme__btn
-              .aboutme__desc
-                +icon('quote','aboutme__icon')
-                .aboutme__text
-                  p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-              .aboutme__mentor
-                .mentor__avatar
-                  +image('content/mentor/vlad.png','mentor__avatar-pic')
-                .mentor__info
-                  .mentor__name Владимир Сабанцев
-                  .mentor__ps Преподаватель
-
+          flickity(ref="flickity" :options="flickityOptions").aboutme__wrapp-slider
+            - for (var i=0; i<8;i++)
+              .aboutme__item
+                .aboutme__desc
+                  +icon('quote','aboutme__icon')
+                  .aboutme__text
+                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!  
+                .aboutme__mentor
+                  .mentor__avatar
+                    +image('content/mentor/kov.png','mentor__avatar-pic')
+                  .mentor__info
+                    .mentor__name Ковальчук Дмитрий
+                    .mentor__ps Основатель Loftschool
           .aboutme__form
             h3.aboutme__title Связаться со мной
             form.form__elemm(action="")
@@ -195,7 +165,7 @@ html(lang="en")
             .footer__menu
               nav.nav
                 - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться']
-                    ul.nav__list
+                    ul.nav__list.adaptive__nav__last
                       each item in menu
                         li.nav__item
                           a.nav__link #{item}
@@ -212,7 +182,7 @@ html(lang="en")
               .footer__quote
                 .footer__quote-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                 .footer__quote-author Martin Golding
-      
+    include ./templates/entry.pug
 
 
 
@@ -238,7 +208,7 @@ html(lang="en")
 
 
 
-
+        
         //- +image('content/user.jpg', 'user-pic')
         //- +icon('link', 'link-class')
         //- .icon-bg

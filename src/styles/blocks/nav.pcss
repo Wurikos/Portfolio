@@ -1,7 +1,15 @@
 .nav__list{
     display: flex;
     align-items: center;
-    
+    @include tablets{
+        display: none;
+    }
+    &.adaptive__nav__last{
+    display: flex;
+    @include tablets{
+        flex-wrap: wrap;
+    }
+}
 }
 
 

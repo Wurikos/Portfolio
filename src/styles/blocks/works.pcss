@@ -1,34 +1,71 @@
 .works__container{
     padding: 11% 0 9% 0;
+     @include phones {
+       width: 100%;
+    }
+    
 }
 .works__slider{
     display: flex;
+    @include tablets{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 .works__left{
     display: flex;
+    width: сalc(100% - 325px - 20px);
+    display: flex;
+    @include desktop {
+        position: relative;
+        padding-right: 160px;
+    }
+    @include tablets{
+        padding-bottom: 70px;
+    }
+    @include phones {
+       padding-right: 0px;
+    }
 }
-.works-left {
-width: сalc(100% - 325px - 20px);
-display: flex;
-}
+
 .works__right {
-width: 325px;
+    width: 325px;
+    @include tablets{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+    }
 }
 
 .works__tags {
 padding-bottom: 9%;
+ @include tablets{
+    padding-bottom: 30px;
+    }
 }
 
 .works__title {
 font-size: 30px;
 font-weight: bold;
 padding-bottom: 12%;
+    @include tablets{
+        padding-bottom: 30px;
+    }
 }
 
 .works__desc-text {
-font-weight: 600;
-line-height: 1.8;
-padding-bottom: 11%;
+    font-weight: 600;
+    line-height: 1.8;
+    padding-bottom: 11%;
+    @include tablets{
+        padding-bottom: 35px;
+    }
+
 }
 
 .works__desc-link {
@@ -43,6 +80,14 @@ padding-bottom: 11%;
         text-decoration:underline;
         transition: 1s;
     }
+    @include tablets{
+       display: flex;
+       justify-content: center;
+      
+    }
+     @include phones{
+         justify-content: start;
+     }
 }
 
 .works__desc-icon {
@@ -50,4 +95,15 @@ padding-bottom: 11%;
     height: 15px;
     fill: #586fd3;
     margin-right: 20px;
+}
+
+.works__text{
+     @include tablets{
+      text-align: center;
+      padding: 0 60px;
+    }
+     @include phones {
+        text-align: left;
+      padding: 0 30px;
+    }
 }

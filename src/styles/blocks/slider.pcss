@@ -7,6 +7,9 @@ display: flex;
 position: absolute;
 right: 0;
 bottom: 60px;
+ @include phones {
+        display: none;
+    }
 }
 
 .slider__buttons {
@@ -43,4 +46,14 @@ height: 50px;
     color: #e6e6e6;
     margin-left: -50px;
     padding-bottom: 30px;
+    @include desktop {
+        font-size: 300px;
+        position: absolute;
+        right: 30px;
+        top: 5px;
+        z-index: -2;
+    }
+    @include phones {
+        display: none;
+    }
 }

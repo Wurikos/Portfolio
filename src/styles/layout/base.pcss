@@ -31,10 +31,23 @@ body {
   max-width: 1480px;
   width: 95%;
   // width: 1490px;
-
-  @include phones {
-    width: 85%;
+  @include desktopSuperHd {
+  max-width: 2400px;
+  width: 60%;
   }
+  @include desktopHd {
+  width: 95%;
+  }
+  @include desktop {
+  width: 95%;
+  }
+  @include tablets {
+  width: 95%;
+  }
+  @include phones {
+  width: 85%;
+}
+
 }
 
 .fullscreen-section {

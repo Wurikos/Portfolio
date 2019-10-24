@@ -1,20 +1,51 @@
 
-.aboutme__wrapp{
+
+.aboutme__container{
+    @include phones{
+        width: 100%;
+    }
+}
+.aboutme__wrapp-slider{
     display: flex;
-    justify-content: space-between;
     padding-bottom:200px;
+
+    @include desktop{
+        justify-content:center;
+        padding: 0px 50px 200px 50px;
+    }
+    @include tablets{
+         padding: 0px 0px 60px 0px;
+         justify-content: center;
+         
+    }
 }
 .aboutme{
-    background: linear-gradient( 90deg, rgb(35,37,41) 0%, rgb(35,37,40) 42%, rgba(34,36,39,0.5) 87%, rgba(34,36,39,0) 100%), url('../images/content/bg/autum.jpg') no-repeat center top /cover;
+    background: linear-gradient( 90deg, rgb(35,37,41) 0%, rgb(35,37,40) 42%, rgba(34,36,39,0.5) 87%, rgba(34,36,39, 0) 100%), url('../images/content/bg/autum.jpg') no-repeat center top /cover;
 }   
 .aboutme__desc{
     display: flex;
     margin-bottom: 55px;
+     @include tablets{
+         justify-content: center;
+         
+    }
+}
+.flickity-viewport{
+    width: 100%;
 }
 .aboutme__icon{
     width: 75px;
     fill: #5a5753;
     margin-right: 20px;
+    @include desktop {
+        height: 65px;
+    }
+    @include tablets{
+       padding-top:5px;
+       width: 30px;
+       height: 30px;
+       margin-right: 10px;
+    }
 }
 .aboutme__title{
     color: white;
@@ -22,6 +53,14 @@
     font-size: 36px;
     margin-right: 110px;
     padding-bottom:100px;
+     @include tablets{
+        margin-right: 30px;
+    }
+    @include phones{
+    margin-right: 0px;
+    padding-bottom:40px;
+    font-size: 24px;
+    }
 }
 .aboutme__text{
     font-weight: 600;
@@ -33,14 +72,48 @@
 
 .aboutme__mentor{
     display: flex;
+    @include desktop {
+        padding-left: 90px;    }
+    @include tablets{
+        padding-left: 60px; 
+    }
 }
 .aboutme__head {
     padding-top: 110px;
     display: flex;
     margin-bottom: 110px;
-}
+    @include desktop {
+        padding-left: 50px;
+        margin-bottom: 0px;
+    }
+     @include tablets{
+         padding-left: 0px;
+         
 
+    }
+     @include phones{
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         padding-bottom: 20px;
+     }
+}
+.aboutme__item{
+    width: 50%;  
+    @include phones{
+        width: 100%;
+    }
+}
 
 .aboutme__form{
     padding-bottom: 200px;
+    @include desktop {
+        padding-left: 50px;
+    }
+     @include tablets{
+         padding: 60px 0px;
+         text-align: center;
+
+    }
 }

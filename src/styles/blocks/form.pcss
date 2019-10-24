@@ -29,6 +29,10 @@
 .form__row{
     display: flex;
     padding-bottom: 45px;
+
+    @include phones{
+        flex-direction: column;
+    }
     
 }
 
@@ -37,6 +41,12 @@
     font-size:16px;
     color: #494a4d;
     padding-left:40px;
+     @include tablets{
+        text-align: left;
+    }
+    @include phones{
+     text-align: center;
+    }
     
 }
 
@@ -64,6 +74,9 @@
 }
 .form__desc{
     padding-bottom: 60px;
+     @include tablets{
+         padding-bottom: 30px;
+    }
 }
 .form__block-icon {
     position: absolute;

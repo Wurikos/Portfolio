@@ -1,12 +1,14 @@
 .slider__buttons{
-    position: relative;
-   
+    position: relative; 
 }
 .slider__button{
     position: absolute;
     left: 0;
     bottom: 60px;
     background: #353e4e;
+     @include phones {
+    z-index: 2;
+    }
    
       
 }
