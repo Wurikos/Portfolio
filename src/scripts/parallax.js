@@ -19,7 +19,7 @@ var parallax = (function () {
     this.move(itemOne, wScroll, 30);
     this.move(itemTwo, wScroll, 50);
     this.move(itemThree, wScroll, 50);
-    this.move(itemFour, wScroll, 90);
+    this.move(itemFour, wScroll, 50);
     this.move(itemFive, wScroll, 70);
     }
     }
