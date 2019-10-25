@@ -25,6 +25,10 @@
 .footer__year {
     width: 230px;
     margin-right: 38px;
+    
+    @include phones{
+        text-align: left;
+    }
 }
 
 .footer__year-text {
@@ -52,6 +56,9 @@
     }
     @include desktop{
         margin-right: 100px;
+    }
+    @include phones{
+        margin-right: 0px;
     }
 }
 

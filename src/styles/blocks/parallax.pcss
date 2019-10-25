@@ -6,58 +6,122 @@
     height: 100%;
     overflow: hidden;
 }
-.paralax-header__img {
-    @include desktopSuperHd {
-    width: 100%;
-    }
-}
 
 .parallax-header__item {
     position: absolute;
     width: 100%;
-&__1 {
-    top: 0;
+    height: 100%;
+    background-position: 50% 0;
+    background-size: cover;
     left: 0;
-}
-    &__2 {
-    margin-top: 530px;
     top: 0;
-    left: 0;
-    @include desktopSuperHd {
-    margin-top: 780px;
-}
-    @include desktopHd {
-    margin-top: 540px;
-}
-    @include desktop {
-    margin-top: 390px;
-}
-    @include tablets {
-    margin-top: 265px;
-}
-    @include phones {
-    margin-top: 110px;
-}
-}
-    &__3 {
-    margin-top: 960px;
-    top: 0;
-    left: 0;
-    @include desktopSuperHd {
-    margin-top: 1410px;
-}
-    @include desktopHd {
-    margin-top: 940px;
-}
-    @include desktop {
-    margin-top: 705px;
-}
-    @include tablets {
-    margin-top: 480px;
-}
-    @include phones {
-    margin-top: 200px;
-}
-}
-}
+    transform: translateX(0) translateZ(0);
+    
+    &__1 {
+        background-image: url('~images/content/parallax/item1.png') ;
+        z-index: 1;
+         @include desktopSuperHd{
+             height: 30%;
+         }
+         @include desktopHd{
+            height: 35%;
+        }
+        @include tablets{
+            height: 22%;
+        }
 
+         @include phones{
+            height: 16%;
+        }
+    }
+
+    &__2 {
+        background-image: url('~images/content/parallax/item2.png');
+        z-index: 2;
+         @include desktopSuperHd{
+            height: 30%;
+             margin-top: 300px;
+         }
+        @include desktopHd{
+            height: 36%;
+            margin-top: 300px;
+            }
+         @include tablets{
+            height: 24%;
+            margin-top: 240px;
+        }
+         @include phones{
+            height: 21%;
+            margin-top: 180px;
+        }
+    }
+    &__3 {
+        background-image: url('~images/content/parallax/item3.png');
+        z-index: 3;
+         @include desktopSuperHd{
+             height: 37%;
+             margin-top: 400px;
+         }
+        @include desktopHd{
+        height: 38%;
+        margin-top: 420px;
+    }
+         @include tablets{
+            height: 28%;
+            margin-top: 300px;
+        }
+
+         @include phones{
+            height: 16%;
+            margin-top: 340px;
+        }
+    }
+    &__4 {
+        background-image: url('~images/content/parallax/item4.png');
+        z-index: 4;
+         @include desktopSuperHd{
+             height: 40%;
+             margin-top: 1000px;
+         }
+        @include desktopHd{
+        height: 25%;
+        margin-top: 800px;
+      }
+        @include tablets{
+            height: 20%;
+            margin-top: 670px;
+        }
+         @include phones{
+            height: 22%;
+            margin-top: 580px;
+        }
+    }
+
+      &__5 {
+        
+        background-image: linear-gradient(
+        to top,
+        rgba(#222427, 0),
+        rgba(#222427, 1),
+        rgba(#222427, 0) 
+        );
+        z-index: 5;
+         @include desktopSuperHd{
+             height: 40%;
+             margin-top: 1500px;
+         }
+        @include desktopHd{
+        height: 37%;
+        margin-top: 1020px;
+      }
+        @include tablets{
+            height: 26%;
+            margin-top: 820px;
+        }
+
+         @include phones{
+            height: 22%;
+            margin-top: 810px;
+        }
+    }
+}

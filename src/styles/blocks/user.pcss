@@ -13,19 +13,25 @@
     @include tablets{
         flex-direction: column;
         text-align: center;
+        padding-top: 140px;
     }
-    
-}
+    }
 
 .user-info__desc{
     
     font-weight: 600;
     font-size: 18px;
-    color: #807c75;   
+    color:#fff;
+    
 
     @include tablets{
-       padding: 0 70px 20px 70px;
+       padding: 0 80px 20px 80px;
        line-height: 1.9;
+       font-size: 16px;
+    }
+    @include phones{
+        padding: 0 0px 20px 0px;
+        font-size: 14px;
     }
 }
 .user-info__username{
@@ -33,9 +39,13 @@
     font-size: 72px;
     color: white;
     font-weight: 700;
+    @include tablets{
+        font-size: 48px;
+    }
 
     @include phones{
-        font-size: 62px;
+        font-size: 36px;
+        line-height: 1.5;
     }
 
 }

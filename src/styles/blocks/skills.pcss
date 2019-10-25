@@ -1,7 +1,7 @@
 .skills{
      background: url('../images/content/bg/bg3.jpg') no-repeat center top /cover;
      position: relative;
-     height: 100vh;
+     height: 100%;
 
       @include tablets{
          display: flex;
@@ -12,7 +12,7 @@
 
 .skills__img{
     position: absolute;
-    top: 125px;
+    bottom: -90px;
     left: 0;
 
     @include desktop{
@@ -20,9 +20,14 @@
        left: -50px; 
     }
       @include tablets{
-        top: 670px;
-      left: 34%;
+        top: 800px;
+        left: 34%;
     }
+
+     @include phones{
+        top:1015px;
+        left: 20%;
+     }
 }
 .skills-pic{
     @include desktop{
@@ -30,7 +35,10 @@
     }
     @include tablets{
        transform: rotate(270deg);
-       height:  400px;
+       height:  700px;
+    }
+    @include phones{
+        height: 350px;
     }
 }
 .skills__title-text{
@@ -39,6 +47,9 @@
     color: white;
       @include tablets{
         padding-top:0px;
+    }
+       @include phones{
+        font-size: 24px;
     }
 }
 .skills__desc{
@@ -55,6 +66,7 @@
      }
      @include phones{
          text-align: left;
+         font-size: 14px;
      }
  }
  .skills-row__list{
@@ -67,32 +79,76 @@
      }
  }
 
+
  .skills__title {
-    width: 600px;
+    width: 700px;
+    font-weight: 600;
      @include tablets{
          text-align: center;
      }
+    @include phones{
+        width: 100%; 
+        padding: 0 10px;
+        text-align: left;
+    }
+  
     
  }
  .skills__container{
      display: flex;
-     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+     padding-bottom: 10%;
+
+    @include tablets{
+        padding-bottom: 50%;
+    }
+    @include phones{
+        padding-bottom: 50%;
+    }
  }
  .skills-row__item{
      margin-right: 60px;
      @include desktop {
          margin-right: 40px;
+         padding-bottom: 20px;
      }
 
      @include tablets{
          margin-right: 25px;
      }
+     @include phones{
+         margin-right: 0;
+     }
  }
  .skills-row__title{
     color: white;
+    font-weight: 700;
     padding-bottom: 35px;
      @include tablets{
         font-weight: 600;  
         text-align: center;   }
+}
+    .skills-user{
+    width: 100%; 
+    padding-right:5%;   
+
+    @include desktop{
+       padding:0; 
+    }
+    @include tablets {
+         padding:0;
+    }
+}
+    .skill__name{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.125rem;
+    font-weight: 700;
+    opacity: .6;
+    text-align: center;
+    color: white;
 }
 

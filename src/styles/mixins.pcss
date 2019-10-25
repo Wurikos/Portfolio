@@ -1,4 +1,10 @@
 @mixin desktopSuperHd() {
+  @media screen and (max-width: $bp-desktop-super-hd) {
+    @content;
+  }
+}
+
+@mixin myMonitor() {
   @media screen and (max-width: $bp-desktop-hd) {
     @content;
   }

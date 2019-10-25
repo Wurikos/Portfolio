@@ -20,12 +20,19 @@ html(lang="en")
                 .logo СА
 
               .welcome__menu
-                nav.nav
+                nav.nav.nav-humb#hamburgerMenu
                   - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
                   ul.nav__list
                     each item in menu
                       li.nav__item
                         a(href="").nav__link #{item}
+                    .welcome__links-adaptive
+                      - var icons = ['insta', 'vk', 'github']
+                      ul.socials
+                        each item in icons
+                          li.socials__item
+                            a(href="").social__link
+                              +icon(`${item}`, 'social__icon')
 
               .welcome__links
                 - var icons = ['insta', 'vk', 'github']
@@ -34,6 +41,9 @@ html(lang="en")
                     li.socials__item
                       a(href="").social__link
                         +icon(`${item}`, 'social__icon')
+              a(href='#').hamburger.hamburger--arrowalt#hamburgerButton
+                .hamburger-box
+                  .hamburger-inner
 
 
             .welcome__content
@@ -123,7 +133,8 @@ html(lang="en")
             - for (var i=0; i<8;i++)
               .aboutme__item
                 .aboutme__desc
-                  +icon('quote','aboutme__icon')
+                  .aboutme__desc-quote
+                    +icon('quote','aboutme__icon')
                   .aboutme__text
                     p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!  
                 .aboutme__mentor

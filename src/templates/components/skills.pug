@@ -2,9 +2,9 @@ script(type="text/x-template")#skills-list
     .skills-user
         ul.user-skills
             li.skills__item(v-for='skill in skills' :key="skill.skillsGroup")
-                user-skills(
+                skillsRow(
                     :skill="skill"
-)
+                    )
 script(type="text/x-template")#skills-row
     .user-skills__item.skills-row
         h3.skills-row__title {{skill.skillsGroup}}
@@ -13,11 +13,14 @@ script(type="text/x-template")#skills-row
                 skill(
                     :skill-name='skillName'
                     :skill-percent='skillPercent'
-)
+                    )
 script(type="text/x-template")#skill
     .skill
-        svg.skill-chart(viewBox="0 0 100 100" )
-            - var r= 47
-            circle.skill__circle.skill__circle_under(r=r cx="50" cy="50" )
-            circle.skill__circle.skill__circle_above(r=r cx="50" cy="50" stroke-dasharray=295)
+        svg(viewBox="0 0 150 150" preserveAspectRatio="none").skill-chart
+            defs.defs
+                linearGradient(x1="0%" y1="50%" x2="100%" y2="100%")#skill__gradient
+                    stop(offset="60%" stop-color="#ff9a00").skill__fill--start
+                    stop(offset="100%" stop-color="#FCCF31").skill__fill--stop
+            circle(r="65" cx="75" cy="75").skill__circle.skill__circle--under
+            circle(r="65" cx="75" cy="75" ref="color-circle" stroke="url(#skill__gradient)" transform="rotate(-180 75 75)").skill__circle.skill__circle--above
         .skill__name {{skillName}}

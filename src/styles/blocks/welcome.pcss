@@ -30,6 +30,10 @@
     align-items: center;
     justify-content: center;
     z-index: 5;
+
+    @include tablets{
+        align-items: flex-start;
+    }
 }
 .welcome__btn{
     display: flex;
@@ -46,4 +50,29 @@
 
 .scroll-content{
     margin-right: 20px;
+}
+
+.welcome__links{
+   
+    @include phones{
+        display: none;
+    }
+}
+
+.welcome__links-adaptive{
+    padding-top: 40px;
+    
+    @include desktopSuperHd{
+        display: none;
+    }
+     @include desktopHd{
+        display: none;
+    }
+    @include desktop{
+        display: none;
+    }
+
+    .social__icon{
+        fill: #414c63; 
+    }
 }

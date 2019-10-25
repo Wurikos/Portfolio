@@ -21,6 +21,7 @@
     
     @include phones{
         flex-direction: column;
+        padding-bottom: 100px;
      }
 }
 
@@ -28,7 +29,7 @@
  width: 290px;
  z-index: 20;
  @include tablets{
-        padding-bottom: 50px;
+        padding-bottom: 70px;
      }
 }
 
@@ -36,12 +37,20 @@
     margin-bottom: 20px;
     font-weight: 800;
     font-size: 16px;
+
+    @include phones{
+        font-size: 14px;
+    }
 }
 .about__title{
     color: white;
     margin-bottom: 40px;
     font-weight: 600;
     font-size: 36px;
+
+    @include phones{
+        font-size: 30px;
+    }
 }
 .about__left, .about__right{
     width: 50%;
@@ -58,8 +67,15 @@
     font-weight: 800;
     font-size: 16px;
     line-height: 1.9;
+
+    @include phones{
+        font-size: 14px;
+    }
 }
 .about__ps{
     font-style: italic;
     line-height: 1.9;
+    @include phones{
+        font-size: 14px;
+    }
 }

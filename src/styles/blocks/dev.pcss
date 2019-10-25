@@ -5,6 +5,10 @@
     line-height: 1.6;
     margin-bottom: 20px;
     color: white;
+
+    @include phones{
+        margin-bottom: 10px;
+    }
 }
 
 .developer-desc {
@@ -15,5 +19,8 @@
     @include desktop {
         padding: 10px 45px;
         text-align: left;
+    }
+    @include phones{
+        padding: 10px 0px;
     }
 }

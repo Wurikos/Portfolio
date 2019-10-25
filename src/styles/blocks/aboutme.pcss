@@ -68,10 +68,15 @@
     color: #949596;
     width: 60%;
     line-height: 1.9;
+
+    @include phones{
+        font-size: 14px;
+    }
 }
 
 .aboutme__mentor{
     display: flex;
+    padding-left: 90px;
     @include desktop {
         padding-left: 90px;    }
     @include tablets{
