@@ -1,5 +1,9 @@
 
  <style  lang="postcss">
+  @import "../styles/mixins.pcss";
+  @import "../styles/layout/base.pcss";
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600..");
+
  body{
    margin: 0;
    box-sizing: border-box;

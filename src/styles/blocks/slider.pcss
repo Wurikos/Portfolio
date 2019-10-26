@@ -1,7 +1,7 @@
 .slider {
     position: relative;
     display: flex;
-   
+    width: 100%;
 }
 
 .slider__preview {
@@ -30,7 +30,7 @@
     width: 50px;
     height: 50px;
 
-    &--slide--next {
+    &--slide--prev {
     transform: rotate(180deg);
     }
 }
@@ -42,24 +42,38 @@
 }
 
 .slider__number {
-    font-size: 400px;
-    font-weight: 800;
-    color: #e6e6e6;
-    margin-left: -50px;
-    padding-bottom: 30px;
-    @include desktop {
-        font-size: 300px;
+   color: #e6e6e6;
+   position: relative;
+   z-index: -1;
+   &::before{
+        content: attr(data-slide);
+        top: 15%;
         position: absolute;
-        right: 30px;
-        top: 5px;
-        z-index: -2;
-    }
-    @include tablets{
-        right: -12px;
-        top: -67px;
-    }
+        transform: translateX(-25%);
+        font-size: 400px;
+        font-weight: 800;
+        line-height: 1;
+        
+        @include desktopHd {
+            transform: translateX(-24%);
+            top: 24%;  
+        }
+        @include desktop {
+            font-size: 300px;
+            transform: translateX(-25%);
+            top: 1%;
+            
+        }
+        @include tablets{
+            transform: translateX(-31%);
+            top: 7%;
+        }
 
-    @include phones {
-        display: none;
+        @include phones {
+            display: none;
+        }
     }
+      @include phones {
+            display: none;
+        }
 }

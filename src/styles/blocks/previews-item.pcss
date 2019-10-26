@@ -1,22 +1,26 @@
-
 .previews {
-    display: flex;
+  display: flex;
 }
-.previews__item{
-    width: 177px;
-    height: 100px;
-    margin-right:1px;
-    &:hover{
+.previews__item {
+  width: 177px;
+  height: 100px;
+  transition: 0.3s;
+
+  &:hover {
     background: #ff9a00;
-    }
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
 }
-.previews__pic{
-    width: 100%;
-    &:hover{
-        opacity:0.6;
-    }
+.previews__pic {
+  width: 100%;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
-.previews__active{
-    outline: 1px solid #ff9a00;
+.previews__active {
+  outline: 3px solid #ff9a00;
+  margin-right: 3px;
 }

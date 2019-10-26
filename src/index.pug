@@ -90,35 +90,7 @@ html(lang="en")
       section.works
         .container.works__container
           h2.section-title Мои работы
-          .works__slider
-            .works__left
-              .slider
-                +image('content/1.jpg','slider__fillpic')
-                .slider__preview
-                  ul.previews 
-                    - for (var i = 0; i < 4; i++)
-                      li.previews__item(class=`${i===0 ? 'previews__active' : ''}`)
-                        +image('content/1.jpg','previews__pic')
-                .slider__buttons
-                  .slider__button 
-                    button.slider-buttons__item.slider-buttons__item--slide--prev
-                      +icon('sa','slider__button-arrow')
-                    button.slider-buttons__item.slider-buttons__item--slide--next
-                      +icon('sa','slider__button-arrow')
-              .slider__number 2      
-            .works__right
-              .works__tags
-                  ul.tags
-                    - var tags = ['HTML','CSS','javascript']
-                      each tag in tags
-                        li.tags__item #{tag}
-              .works__text
-                h3.works__title Сайт школы образования
-                .works__desc-text
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a(href="#").works__desc-link
-                  +icon("link", "works__desc-icon")
-                  .works-link__text Посмотреть сайт            
+          #slider-component
       section.aboutme(@click="checkArrows" @touchend="checkArrows")
         .container.aboutme__container
           .aboutme__head
