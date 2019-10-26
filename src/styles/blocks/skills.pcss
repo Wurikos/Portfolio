@@ -15,6 +15,8 @@
     bottom: -90px;
     left: 0;
 
+    
+
     @include desktop{
        top: 340px;
        left: -50px; 
@@ -30,6 +32,11 @@
      }
 }
 .skills-pic{
+
+    @include desktop-my {
+        height:  700px;
+    }
+
     @include desktop{
        height:  700px;
     }
@@ -115,6 +122,10 @@
         -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2);
+    }
+    
+    @include desktop-my {
+        margin-right: 40px;
     }
 
      @include desktop {

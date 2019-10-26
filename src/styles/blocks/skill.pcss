@@ -1,24 +1,15 @@
-.skill__shape{
-    width: 130px;
-    height: 130px;
-    fill: transparent;
-    stroke: black;
-    stroke-width: 4px;
-    transform: rotate(180deg);
-      @include tablets{
-       width: 100px;
-       height:  100px;
-    }
-    @include phones{
-       width: 110px;
-       height:  110px;
-     }
-}
+
+
 .skill{
     position: relative;
     width: 160px;
     height: 160px;
     fill: transparent;
+     @include desktop-my {
+        width: 130px;
+        height: 130px;
+    }
+
     @include tablets{
         margin-right: 20px;
         &:last-child{
