@@ -117,25 +117,32 @@ html(lang="en")
                     .mentor__ps Основатель Loftschool
           .aboutme__form
             h3.aboutme__title Связаться со мной
-            form.form__elemm(action="")
+            form.form__elemm(@submit.prevent="submitForm")
               .form__row
-                .form__block
+                .form__block.form__block--name(:class="{error: !nameValid}")
                   label.form__title Введите ваше имя
                   .form__case
                     +icon('Avatar','form__block-icon')
-                    input.form__input(type="text" placeholder="Имя" name="name")
-                .form__block
+                    input.form__input(type="text" placeholder="Имя" name="name" @input="valideName" onFocus="this.placeholder= ''")
+                  .form__tooltip  {{emailError}}
+                .form__block.form__block--email(:class="{error: !emailValid}")
                   label.form__title Введите ваш email
                   .form__case
                     +icon('envelope','form__block-icon')
-                    input.form__input(type="text" placeholder="@email" name="name")  
-              .form__desc
+                    input.form__input(type="email" placeholder="@email" name="email" @input="valideEmail" onFocus="this.placeholder= ''")  
+                  .form__tooltip {{emailError}}
+              .form__desc.form__desc--message(:class="{error: !messageValid}")
                 label.form__title Сообщение к письму
                 .form__case
                   +icon('Chat','form__block-icon')
-                  input.form__input.form__input--width(type="textarea" placeholder="Требуется ваша помощь в создании сайта.Интересует сроки и цена вопроса" name='msge') 
+                  input.form__input.form__input--width(type="textarea" placeholder="Требуется ваша помощь в создании сайта.Интересует сроки и цена вопроса" name='message' @input="valideMessage" onFocus="this.placeholder= ''") 
+                .form__tooltip {{emailError}}
               .form__btn
-                button.form__button Отправить
+                button(@click.prevent="submitForm").form__button Отправить
+        .overlay(:class="{disabled:overlayHidden}" @click="hideOverlay")
+          .overlay__content
+            .overlay__message {{resultMessage}}
+            button.overlay__close(@click="hideOverlay") Закрыть
       section.footer
         .container.footer__container
           .footer__left

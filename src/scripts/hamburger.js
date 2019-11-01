@@ -11,6 +11,7 @@ function closeHamburgerMenu() {
     hamburgerButton.classList.remove("is-active");
 }
 
+
 hamburgerButton.addEventListener("click", function(e) {
     e.preventDefault();
     if (hamburgerButton.classList.contains("is-active")) {
@@ -21,12 +22,16 @@ hamburgerButton.addEventListener("click", function(e) {
         }, 400);
     } else {
         openHamburgerMenu();
+        
     }
 });
+
+
 
 hamburgerMenu.addEventListener("click", function(e) {
     e.preventDefault;
     if (e.target.classList.contains("nav__link")) {
             closeHamburgerMenu();
+        
     }
 });
