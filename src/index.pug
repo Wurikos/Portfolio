@@ -12,7 +12,6 @@ html(lang="en")
       .welcome__wrapper
         include ./templates/components/parallax.pug
         
-
         section.welcome
           .container.welcome__container
             header.welcome__header
@@ -91,8 +90,8 @@ html(lang="en")
         .container.works__container
           h2.section-title Мои работы
           #slider-component
-      section.aboutme(@click="checkArrows" @touchend="checkArrows")
-        .container.aboutme__container
+      section.aboutme
+        .container.aboutme__container(@click="checkArrows" @touchend="checkArrows")
           .aboutme__head
             h3.aboutme__title Что обо мне говорят
             .aboutme__buttn-group
@@ -115,7 +114,8 @@ html(lang="en")
                   .mentor__info
                     .mentor__name Ковальчук Дмитрий
                     .mentor__ps Основатель Loftschool
-          .aboutme__form
+        .aboutme__form
+          .container
             h3.aboutme__title Связаться со мной
             form.form__elemm(@submit.prevent="submitForm")
               .form__row
@@ -123,26 +123,26 @@ html(lang="en")
                   label.form__title Введите ваше имя
                   .form__case
                     +icon('Avatar','form__block-icon')
-                    input.form__input(type="text" placeholder="Имя" name="name" @input="valideName" onFocus="this.placeholder= ''")
+                    input.form__input(type="text" placeholder="Имя" name="name" @input="validateName" onFocus="this.placeholder= ''")
                   .form__tooltip  {{emailError}}
                 .form__block.form__block--email(:class="{error: !emailValid}")
                   label.form__title Введите ваш email
                   .form__case
                     +icon('envelope','form__block-icon')
-                    input.form__input(type="email" placeholder="@email" name="email" @input="valideEmail" onFocus="this.placeholder= ''")  
+                    input.form__input(type="email" placeholder="@email" name="email" @input="validateEmail" onFocus="this.placeholder= ''")
                   .form__tooltip {{emailError}}
               .form__desc.form__desc--message(:class="{error: !messageValid}")
                 label.form__title Сообщение к письму
                 .form__case
                   +icon('Chat','form__block-icon')
-                  input.form__input.form__input--width(type="textarea" placeholder="Требуется ваша помощь в создании сайта.Интересует сроки и цена вопроса" name='message' @input="valideMessage" onFocus="this.placeholder= ''") 
+                  input.form__input.form__input--width(type="textarea" placeholder="Требуется ваша помощь в создании сайта.Интересует сроки и цена вопроса" name='message' @input="validateMessage" onFocus="this.placeholder= ''")
                 .form__tooltip {{emailError}}
               .form__btn
                 button(@click.prevent="submitForm").form__button Отправить
-        .overlay(:class="{disabled:overlayHidden}" @click="hideOverlay")
-          .overlay__content
-            .overlay__message {{resultMessage}}
-            button.overlay__close(@click="hideOverlay") Закрыть
+          .overlay(:class="{disabled:overlayHidden}" @click="hideOverlay")
+            .overlay__content
+              .overlay__message {{resultMessage}}
+              button.overlay__close(@click="hideOverlay") Закрыть
       section.footer
         .container.footer__container
           .footer__left
