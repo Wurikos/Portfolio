@@ -8,7 +8,10 @@ body {
   box-sizing: border-box;
 }
 
-header {
+.container {
+  @include phones {
+    width: 100%;
+  } 
 }
 
 li {
@@ -32,22 +35,43 @@ li {
   color: white;
   align-items: center;
 }
+.head__user{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
 
+.head__user-avatar{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: url("../images/content/mentor/vlad.png") no-repeat center center;
+  margin-right: 10px;
+}
 .head__user-name {
   font-size: 18px;
   font-weight: 700px;
   margin-right: 30px;
+  @include phones{
+    display: none;
+  }
 }
 
 .head__text {
   font-size: 14px;
   font-weight: 400px;
   opacity: 0.5;
+  @include phones{
+    display: none;
+  }
 }
 
 .head__down {
   display: flex;
   align-items: center;
+    @include phones{
+    justify-content: center;
+  }
 }
 
 .head__btn-link {
@@ -58,6 +82,7 @@ li {
 
 .head__nav-list {
   display: flex;
+
 }
 
 .nav__item {
@@ -68,6 +93,9 @@ li {
   }
   &:hover {
     border-bottom: 2px solid blue;
+  }
+  @include phones{
+    padding: 10px;
   }
 }
 
@@ -85,12 +113,21 @@ li {
 .aboutme__head {
   display: flex;
   align-items: center;
+  @include phones {
+    display: flex;
+    flex-direction:column;
+    align-items: start;
+    padding: 20px 0px;
+  }
 }
 
 .aboutme__head-title {
   font-weight: 600;
   color: #414c63;
   margin-right: 60px;
+  @include phones{
+    font-size: 18px;
+  }
 }
 
 .aboutme__btn-icon {
@@ -100,7 +137,7 @@ li {
   background: url("../images/content/admin/circle.png");
   background-size: cover;
   background-position: center center/ no repeat;
-  margin-right: 15px;
+  margin-right: 7px;
 }
 
 .aboutme__icon-plus {
@@ -120,6 +157,9 @@ li {
   padding: 40px 0px;
   display: flex;
   align-items: center;
+  @include phones{
+    padding: 16px 0px;
+  }
 }
 
 .aboutme__btn {
@@ -128,13 +168,25 @@ li {
   color: #383bcf;
 }
 
-form.aboutme {
+.aboutme {
   padding: 20px;
   background-color: white;
   min-width: 530px;
   min-height: 390px;
   margin-bottom: 30px;
   box-shadow: 4.096px 2.868px 20px 0px rgba(0, 0, 0, 0.07);
+  
+  @include tablets{
+     padding: 14px;
+     min-width: 350px;
+     .aboutme--new{
+       display:none;
+     }
+  }
+  @include phones{
+    min-width: 340px;
+  }
+ 
 }
 
 .form__aboutme-wrapper {
@@ -203,6 +255,9 @@ form.aboutme {
 .item__skill-value {
   margin-right: 60px;
   border-bottom: 1px solid black;
+   @include tablets{
+     margin-right: 10px;
+   }
 }
 
 .form__skill-item {
@@ -282,11 +337,20 @@ input {
 .works__content {
   margin-bottom: 30px;
   display: flex;
+
+  @include tablets{
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
 }
 
 .works__content-btn {
   display: flex;
   justify-content: flex-end;
+  @include tablets{
+    justify-content: center;
+  }
 }
 .works__content-btn-save {
   border-radius: 30px;
@@ -319,6 +383,10 @@ input {
   min-width: 1080px;
   min-height: 780px;
   box-shadow: 4.096px 2.868px 20px 0px rgba(0, 0, 0, 0.07);
+  @include tablets{
+    min-width: 768px;
+    margin-right: 0px;
+  }
 }
 
 .works__edit {
@@ -337,6 +405,12 @@ input {
     display: flex;
     flex-direction: column;
     width: 100%;
+    @include tablets{
+      padding: 30px 80px;
+    }
+    @include phones {
+      padding: 15px 0px;
+    }
   }
 }
 
@@ -376,6 +450,9 @@ input {
   display: flex;
   flex-direction: column;
   padding-bottom: 30px;
+  @include phones{
+    width: 50%;
+  }
 }
 
 .site__text {
@@ -416,6 +493,14 @@ input {
       rgb(63, 53, 203) 100%
     );
     opacity: 1;
+    @include phones{
+      min-width: 320px;
+      min-height: 110px;
+      margin-bottom: 14px;
+    }
+  }
+  @include tablets{
+    margin-right: 15px;
   }
 }
 
@@ -428,6 +513,12 @@ input {
   height: 146px;
   margin-bottom: 35px;
   position: relative;
+
+  @include phones{
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px
+    }
 }
 
 .add__item-title {
@@ -449,6 +540,9 @@ input {
   top: 50%;
   left: 50%;
   z-index: 5;
+   @include phones{
+     font-size: 30px;
+   }
 }
 
 .add__works-llink {
@@ -539,7 +633,11 @@ input {
 .reviews {
   background-color: #f8f9fe;
 }
-
+.reviews__head {
+  padding: 40px 0px;
+  display: flex;
+  align-items: center;
+}
 .add__reviews-list {
   display: flex;
   flex-wrap: wrap;
@@ -555,6 +653,16 @@ input {
   margin-right: 30px;
   width: 340px;
   min-height: 390px;
+  @include tablets{
+    &:last-child{
+      display:none;
+    }
+    @include phones{
+      min-width: 320px;
+      min-height: 110px;
+      margin-bottom: 14px;
+    }
+  }
   &:hover {
     opacity: 1;
   }
@@ -616,6 +724,9 @@ input {
   margin-bottom: 30px;
   background: white;
   box-shadow: 4.096px 2.868px 20px 0px rgba(0, 0, 0, 0.07);
+  @include tablets {
+    min-width: 525px;
+  }
 }
 .reviews__content-btn {
   font-weight: 600;
@@ -635,6 +746,9 @@ input {
 }
 .reviews__new-content {
   display: flex;
+  @include phones {
+    flex-direction:column;
+  }
 }
 .new__content-desc {
   display: flex;
@@ -665,6 +779,9 @@ input {
 .new__form-head {
   margin-bottom: 30px;
   display: flex;
+  @include tablets{
+    flex-direction:column;
+  }
 }
 .new__content-desc {
   margin-right: 40px;
@@ -676,6 +793,12 @@ input {
   margin-right: 10px;
   display: flex;
   flex-direction: column;
+  @include tablets{
+    margin-bottom: 15px;
+    &:last-child{
+       margin-bottom: 0px;
+    }
+  }
 }
 .new__form-reviews {
   display: flex;
@@ -870,13 +993,13 @@ center center no-repeat;
           .container
             .aboutme__head
               .aboutme__head-name
-                h2.aboutme__head-title Блок Обо мне
+                h2.aboutme__head-title Блок «Обо мне»
               .aboutme__head-btn
                 button(type="button").aboutme__btn-icon
                   .aboutme__icon-plus +
                 button(type="button").aboutme__btn Добавить группу
             .form__aboutme-wrapper
-              form.aboutme
+              form.aboutme.aboutme--new
                 .form__head
                   .form__skill-group
                     input.form__group-name(type="text" name="name" placeholder="Название новой группы")
@@ -990,7 +1113,7 @@ center center no-repeat;
         section.works
           .container
             .works__head
-              h2.aboutme__head-title Блок Работы
+              h2.aboutme__head-title Блок «Работы»
             .works-wrapper
               .works__edit
                 .works__edit-title
@@ -1084,6 +1207,8 @@ center center no-repeat;
                     
         section.reviews
           .container
+            .reviews__head
+              h2.aboutme__head-title Блок «Отзывы»
             .reviews__new
               .reviews__new-head
                 h4.reviews__new-head-title Новый отзыв

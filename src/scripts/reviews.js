@@ -3,7 +3,7 @@ import Flickity from 'vue-flickity';
 import { selector } from 'postcss-selector-parser';
  
 new Vue({
-  el: '.aboutme',
+  el: '.aboutme__container',
   components: {
     Flickity
   },

@@ -17,7 +17,7 @@ data:{
 },
 methods:{
     validateName(){
-        this.name = this.$el.querySelector('.form__block--name').value;
+        this.name = this.$el.querySelector('.form__input--name').value;
         if(this.name.length < 3){
             this.nameValid= false;
             this.nameError = 'Слишком короткое имя';
@@ -29,7 +29,7 @@ methods:{
     },
     validateEmail(){
         var reqex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        this.email = this.$el.querySelector('.form__block--email').value;
+        this.email = this.$el.querySelector('.form__input--email').value;
         if(this.email.length < 8){
             this.emailValid= false;
             this.emailError = 'Короткий email';
@@ -44,9 +44,9 @@ methods:{
         
     },
     validateMessage(){
-        this.message = this.$el.querySelector('.form__desc--message').value;
+        this.message = this.$el.querySelector('.form__input--message').value;
         if(this.message.length < 20){
-            this.mesasgeValid= false;
+            this.messageValid= false;
             this.messageError = 'Слишком короткое сообщение';
         }else {
             this.messageValid = true;
