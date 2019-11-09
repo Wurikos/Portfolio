@@ -95,7 +95,7 @@ li {
     border-bottom: 2px solid blue;
   }
   @include phones{
-    padding: 10px;
+    padding: 20px;
   }
 }
 
@@ -250,8 +250,12 @@ li {
 
 .item__row {
   display: flex;
+  width:50%;
 }
-
+.item__skill-btn{
+  display:flex;
+  align-items:center;
+}
 .item__skill-value {
   margin-right: 60px;
   border-bottom: 1px solid black;
@@ -343,6 +347,9 @@ input {
     align-items:center;
     justify-content:center;
   }
+  @include phones{
+    min-width:320px;
+  }
 }
 
 .works__content-btn {
@@ -387,6 +394,9 @@ input {
     min-width: 768px;
     margin-right: 0px;
   }
+  @include phones{
+    min-width: 320px;
+  }
 }
 
 .works__edit {
@@ -409,9 +419,12 @@ input {
       padding: 30px 80px;
     }
     @include phones {
+      margin:0;
       padding: 15px 0px;
     }
   }
+   @include phones {
+      margin:0;}
 }
 
 .works__img-block {
@@ -424,6 +437,10 @@ input {
   background-color: #dee4ed;
   min-width: 500px;
   min-height: 280px;
+  
+  @include phones{
+    min-width: 320px;
+  }
 }
 
 .works__img-title {
@@ -450,9 +467,7 @@ input {
   display: flex;
   flex-direction: column;
   padding-bottom: 30px;
-  @include phones{
-    width: 50%;
-  }
+
 }
 
 .site__text {
@@ -658,7 +673,8 @@ input {
       display:none;
     }
     @include phones{
-      min-width: 320px;
+      margin-right: 0px;
+      width: 100%;
       min-height: 110px;
       margin-bottom: 14px;
     }
@@ -727,6 +743,9 @@ input {
   @include tablets {
     min-width: 525px;
   }
+  @include phones{
+    min-width: 320px;
+  }
 }
 .reviews__content-btn {
   font-weight: 600;
@@ -754,6 +773,9 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include phones{
+
+  }
 }
 .new__content-img {
   display: flex;
@@ -785,6 +807,9 @@ input {
 }
 .new__content-desc {
   margin-right: 40px;
+   @include phones{
+   margin-right: 0px; 
+  }
 }
 .new__form-content {
   margin-bottom: 30px;
@@ -807,6 +832,9 @@ input {
 .new__content-form {
   padding-right: 30%;
   width: 100%;
+  @include phones{
+     padding-right: 0%;
+  }
 }
 .new__form-avtor {
   width: 100%;
@@ -965,385 +993,27 @@ center center no-repeat;
 
 
 <template lang="pug">
-  body
-    .wrapper
-      .container
-        header
-          .head__up
-            .head__up-row
-              .head__user
-                .head__user-avatar
-                .head__user-name Сулин Александр
-              .head__text Панель администрирования
-            .head__up-row
-              .head__out-btn
-                a(href="#").head__btn-link Выйти
-          .head__down
-            ul.head__nav-list
-              -
-                var menu = [
-                  'Обо мне',
-                  'Работы',
-                  'Отзывы'
-                ]
-              each item in menu
-                li.nav__item
-                  a(href="#").nav__link #{item}
-        section.aboutme
-          .container
-            .aboutme__head
-              .aboutme__head-name
-                h2.aboutme__head-title Блок «Обо мне»
-              .aboutme__head-btn
-                button(type="button").aboutme__btn-icon
-                  .aboutme__icon-plus +
-                button(type="button").aboutme__btn Добавить группу
-            .form__aboutme-wrapper
-              form.aboutme.aboutme--new
-                .form__head
-                  .form__skill-group
-                    input.form__group-name(type="text" name="name" placeholder="Название новой группы")
-                  .form__btn-group 
-                    button(type="button").form__btn__icon-accept
-
-                    button(type="button").form__btn__icon-close
-                hr.form-divider
-                .form__content
-                  .form__skill-newitem
-                    input.form__skill-name(type="text" name="name" placeholder="Новый навык")
-                    input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="100")
-                    button(type="button").new__item-confirm
-                      .new__item-confirm-plus +
-              form.aboutme
-                .form__head
-                  .form__skill-group
-                    input.form__group-name(type="text" name="name" placeholder="Workflow")
-                  .form__btn-group 
-                    button(type="button").form__btn__icon-accept
-                    button(type="button").form__btn__icon-close
-                hr.form-divider
-                .form__content
-                  ul.form__skill-list
-                    li.form__skill-item
-                      .item__row
-                        input.skill__item-name(type="text" name="name" placeholder="Git")
-                      .item__row
-                        input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="100")
-                        .item__skill-btn
-                          button(type="button").item__btn-edit
-                          button(type="button").item__btn-delete 
-                    li.form__skill-item
-                      .item__row
-                        input.skill__item-name(type="text" name="name" placeholder="Terminal")
-                      .item__row
-                        input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="90")
-                        .item__skill-btn
-                          button(type="button").item__btn-edit
-                          button(type="button").item__btn-delete 
-                    li.form__skill-item
-                      .item__row
-                        input.skill__item-name(type="text" name="name" placeholder="Gulp")
-                      .item__row
-                        input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="80")
-                        .item__skill-btn
-                          button(type="button").item__btn-edit
-                          button(type="button").item__btn-delete 
-                    li.form__skill-item
-                      .item__row
-                        input.skill__item-name(type="text" name="name" placeholder="Webpack")
-                      .item__row
-                        input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="85")
-                        .item__skill-btn
-                          button(type="button").item__btn-edit 
-                          button(type="button").item__btn-delete
-
-                  .form__skill-newitem
-                    input.form__skill-name(type="text" name="name" placeholder="Новый навык")
-                    input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="100")
-                    button(type="button").new__item-confirm
-                      .new__item-confirm-plus +
-
-              form.aboutme
-                .form__head
-                  .form__skill-group
-                    input.form__group-name(type="text" name="name" placeholder="Frontend")
-                  .form__btn-group 
-                    button(type="button").form__btn__icon-accept
-                    button(type="button").form__btn__icon-close
-                hr.form-divider
-                .form__content
-                  ul.form__skill-list
-                    li.form__skill-item
-                      .item__row
-                        input.skill__item-name(type="text" name="name" placeholder="Html5")
-                      .item__row
-                        input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="100")
-                        .item__skill-btn
-                          button(type="button").item__btn-edit
-                          button(type="button").item__btn-delete 
-                    li.form__skill-item
-                      .item__row
-                        input.skill__item-name(type="text" name="name" placeholder="CSS3")
-                      .item__row
-                        input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="90")
-                        .item__skill-btn
-                          button(type="button").item__btn-edit
-                          button(type="button").item__btn-delete
-                    li.form__skill-item
-                      .item__row
-                        input.skill__item-name(type="text" name="name" placeholder="JavaScript")
-                      .item__row
-                        input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="80")
-                        .item__skill-btn
-                          button(type="button").item__btn-edit 
-                          button(type="button").item__btn-delete
-                    li.form__skill-item
-                      .item__row
-                        input.skill__item-name(type="text" name="name" placeholder="Jquery и Vue.js")
-                      .item__row
-                        input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="85")
-                        .item__skill-btn
-                          button(type="button").item__btn-edit
-                          button(type="button").item__btn-delete
-                  .form__skill-newitem
-                    input.form__skill-name(type="text" name="name" placeholder="Новый навык")
-                    input.item__skill-value(type="number" name="name" min='0' max='100' placeholder="100")
-                    button(type="button").new__item-confirm
-                      .new__item-confirm-plus +
-        section.works
-          .container
-            .works__head
-              h2.aboutme__head-title Блок «Работы»
-            .works-wrapper
-              .works__edit
-                .works__edit-title
-                  h3.works__edit-subtitle Редактирование Работы
-                hr.form-divider
-              .works__content
-                .works__content-desc
-                  .works__img-block
-                    .works__img-title Перетащите или загрузите для загрузки изображения
-                    button(type="button").works__download-btn Загрузить
-                .works__content-desc--right
-                  label.site__title Название
-                    input.site__text(type="text" name="name" placeholder="Дизайн сайта для авто салона Porsche")
-                  label.site__title Ссылка
-                    input.site__text(type="text" name="name" placeholder="https://www.porsche-pulkovo.ru")
-                  label.site__title Описание
-                    textarea.site__text.site__textarea(type="textarea" name="name" )
-                  label.site__title Добавление тэга
-                    input.site__text(type="text" name="name" placeholder="Jquery Vue.js HTML5")
-                  .works__content-btn
-                     button(type="button").works__content-btn-cancel Отмена
-                     button(type="button").works__content-btn-save Сохранить
-                    
-            .add__works
-              .add__works-content
-                ul.add__works-list
-                  li.add__works-item.add__works-item--new
-                    a(href="#").add__works-llink
-                      .add__item-pic--new
-                        .add__item-plus +
-                      .add__item-title Добавить работу
-                  li.add__works-item
-                    .add__item-pic
-                      img(src="../images/content/1.jpg")
-                    .add__item-content
-                      .add__item-content-title Сайт школы образования 
-                      .add__item-content-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                        a(href="#").add__item-content-link http://loftschool.ru
-                      .add__item-content-btn
-                        .add__item-btn-row
-                          button(type="button").add__item-btn-edit Править
-                          .add__item-pic-edit
-                        .add__item-btn-row
-                          button(type="button").add__item-btn-delete Удалить
-                          .add__item-pic-delete
-                  li.add__works-item
-                    .add__item-pic
-                      img(src="../images/content/2.jpg")
-                    .add__item-content
-                      .add__item-content-title Сайт школы образования 
-                      .add__item-content-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                        a(href="#").add__item-content-link http://loftschool.ru
-                      .add__item-content-btn
-                        .add__item-btn-row
-                          button(type="button").add__item-btn-edit Править
-                          .add__item-pic-edit
-                        .add__item-btn-row
-                          button(type="button").add__item-btn-delete Удалить
-                          .add__item-pic-delete
-                  li.add__works-item
-                    .add__item-pic
-                      img(src="../images/content/3.jpg")
-                    .add__item-content
-                      .add__item-content-title Сайт школы образования 
-                      .add__item-content-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                        a(href="#").add__item-content-link http://loftschool.ru
-                      .add__item-content-btn
-                        .add__item-btn-row
-                          button(type="button").add__item-btn-edit Править
-                          .add__item-pic-edit
-                        .add__item-btn-row
-                          button(type="button").add__item-btn-delete Удалить
-                          .add__item-pic-delete
-                  li.add__works-item
-                    .add__item-pic
-                      img(src="../images/content/4.jpg")
-                    .add__item-content
-                      .add__item-content-title Сайт школы образования 
-                      .add__item-content-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                        a(href="#").add__item-content-link http://loftschool.ru
-                      .add__item-content-btn
-                        .add__item-btn-row
-                          button(type="button").add__item-btn-edit Править
-                          .add__item-pic-edit
-                        .add__item-btn-row
-                          button(type="button").add__item-btn-delete Удалить
-                          .add__item-pic-delete
-
-
-                        
-                    
-        section.reviews
-          .container
-            .reviews__head
-              h2.aboutme__head-title Блок «Отзывы»
-            .reviews__new
-              .reviews__new-head
-                h4.reviews__new-head-title Новый отзыв
-              hr.reviews__divider
-              .reviews__new-content
-                .new__content-desc
-                  .new__content-img
-                    .new__content-pic
-                  .new__content-btn
-                    button(type="button").reviews__content-btn Добавить фото
-                .new__content-form
-                  .new__form-head
-                    label.new__form-avtor Имя автора
-                      input.new__form-avtor-text(type="text" name="name" placeholder="Ковальчук Дмитрий")
-                    label.new__form-avtor Титул автора
-                      input.new__form-avtor-text(type="text" name="name" placeholder="Ковальчук Дмитрий")
-                  .new__form-content
-                    label.new__form-reviews Отзыв
-                      textarea.site__text.site__textarea(type="textarea" name="name" )
-                  .new__form-btn 
-                    button(type="button").works__content-btn-cancel Отмена
-                    button(type="button").works__content-btn-save Сохранить
-
-            .add__reviews
-              .add__reviews-content
-                  ul.add__reviews-list
-                    li.add__reviews-item.add__reviews-item--new
-                      a(href="#").add__reviews-llink
-                        .add__item-pic--new
-                          .add__item-plus +
-                        .add__item-title Добавить отзыв
-                    li.add__reviews-item
-                      .reviews__mentor
-                        .mentor__avatar
-                          img(src='../images/content/mentor/vlad.png',).mentor__avatar-pic
-                        .mentor__info
-                          .mentor__name-rev Владимир Сабанцев
-                          .mentor__ps Преподаватель
-                      hr.form-divider
-                      .add__item-content
-                        .add__item-content-text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                        .add__item-content-btn
-                          .add__item-btn-row
-                            button(type="button").add__item-btn-edit Править
-                            .add__item-pic-edit
-                          .add__item-btn-row
-                            button(type="button").add__item-btn-delete Удалить
-                            .add__item-pic-delete
-                    li.add__reviews-item
-                      .reviews__mentor
-                        .mentor__avatar
-                          img(src='../images/content/mentor/kov.png',).mentor__avatar-pic
-                        .mentor__info
-                          .mentor__name-rev Ковальчук Дмитрий
-                          .mentor__ps Основатель Loftschool
-                      hr.form-divider
-                      .add__item-content
-                        .add__item-content-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                        .add__item-content-btn
-                          .add__item-btn-row
-                            button(type="button").add__item-btn-edit Править
-                            .add__item-pic-edit
-                          .add__item-btn-row
-                            button(type="button").add__item-btn-delete Удалить
-                            .add__item-pic-delete
-                    li.add__reviews-item
-                      .reviews__mentor
-                        .mentor__avatar
-                          img(src='../images/content/mentor/vlad.png',).mentor__avatar-pic
-                        .mentor__info
-                          .mentor__name-rev Владимир Сабанцев
-                          .mentor__ps Преподаватель
-                      hr.form-divider
-                      .add__item-content
-                        .add__item-content-text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                        .add__item-content-btn
-                          .add__item-btn-row
-                            button(type="button").add__item-btn-edit Править
-                            .add__item-pic-edit
-                          .add__item-btn-row
-                            button(type="button").add__item-btn-delete Удалить
-                            .add__item-pic-delete
-                    li.add__reviews-item
-                      .reviews__mentor
-                        .mentor__avatar
-                          img(src='../images/content/mentor/kov.png',).mentor__avatar-pic
-                        .mentor__info
-                          .mentor__name-rev Ковальчук Дмитрий
-                          .mentor__ps Основатель Loftschool
-                      hr.form-divider
-                      .add__item-content 
-                        .add__item-content-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                        .add__item-content-btn
-                          .add__item-btn-row
-                            button(type="button").add__item-btn-edit Править
-                            .add__item-pic-edit
-                          .add__item-btn-row
-                            button(type="button").add__item-btn-delete Удалить
-                            .add__item-pic-delete
-      .authorization__wrapper
-        .authorization
-          .authorization__title
-            .authorization__title-text Авторизация
-          form.form__authorization
-            .form__authorization-row
-              label.form__authorization-label.form__label-login
-                span.form__author-title.form__login-title Логин
-                .form__input-hover
-                  input.form__author-input(type="text" name="name")
-                  .form__login-icon.form__icon
-              label.form__authorization-label.form__label-password
-                span.form__author-title.form__password-title Пароль
-                .form__input-hover
-                  input.form__author-input(type="password" name="password")
-                  .form__password-icon.form__icon
-            .form__authorization-button
-              button(type="button").form__author-button Отправить
-          button(type="button").authorization__button
-            .authorization__close
-
-
-          
-
-
-
-      
-                    
-
-                
-
-
-            
-            
-
-              
-
-
+  .wrapper
+    template(v-if="$route.meta.public")
+      router-view
+    template(v-else-if="userIsLogged")
+      app-header
+      app-nav
+      main
+        router-view(:pageTitle="$route.meta.title")
 </template>
+
+<script>
+import appHeader from "./components/app-header";
+export default {
+  name:"app",
+  data() {
+    return {
+      userIsLogged:true
+    };
+  },
+  components:{
+    appHeader
+  }
+};
+</script>
