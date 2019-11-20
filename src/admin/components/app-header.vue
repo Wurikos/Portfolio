@@ -14,15 +14,12 @@
           ul.head__nav-list
             -
               var menu = [
-                'Обо мне',
-                'Работы',
-                'Отзывы'
+                ['Обо мне','/'],
+                ['Работы','/works'],
+                ['Отзывы','/reviews']
               ]
             each item in menu
-              li.nav__item
-                a(href="#").nav__link #{item}    
-              router-link(
-                tag='button'
-                to="/reviews"  
-              )
+              li.nav__item 
+                router-link(tag="a" to=item[1]).nav__link #{item[0]}
+                //- a(href=item[1]).nav__link #{item[0]}
 </template>

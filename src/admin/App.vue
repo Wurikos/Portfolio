@@ -998,7 +998,6 @@ center center no-repeat;
       router-view
     template(v-else-if="userIsLogged")
       app-header
-      app-nav
       main
         router-view(:pageTitle="$route.meta.title")
 </template>

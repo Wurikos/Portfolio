@@ -125,3 +125,23 @@
                         
                     
 </template>
+<script>
+import {mapState,mapActions} from 'vuex';
+export default {
+  components: {
+    aboutForm: () => import("../about-form.vue"),
+    aboutItem: () => import("../about-item.vue")
+  },
+  computed: {
+    ...mapState("categories", { categories: state => state.categories })
+  },
+  methods: {
+    ...mapActions("categories", ["getCategories"])
+  },
+  async created() {
+    try {
+      await this.getCategories();
+    } catch (e) {}
+  }
+}
+</script>

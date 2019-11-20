@@ -1,36 +1,35 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import routes from "@/scripts-admin/routes";
+import axios from "axios";
+import store from "@/store";
+import requests from "@/requests";
+
+import { setAuthHttpHeaderToAxios, getToken, removeToken } from "../helpers/token";
 
 Vue.use(VueRouter);
 
-const routes = [
-    {
-        path: "/",
-        component: () => import("../components/pages/aboutme.vue"),
-        meta: {
-            title: "Блок «Обо мне»"
-        }               
-    },
-    {
-        path: "/login",
-        component: () => import("../components/pages/login.vue"),
-        meta: {
-            public: true
-        }               
-    },
-    {
-        path: "/reviews",
-        component: () => import("../components/pages/reviews.vue"),
-        meta: {
-            title: "Блок «Отзывы»"
-        }               
-    },
-    {
-        path: "/works",
-        component: () => import("../components/pages/works.vue"),
-        meta: {
-            title: "Блок «Работы»"
-        }               
-    },
-]
-export default new VueRouter({ routes });
+const baseURL = requests.defaults.baseURL;
+const guard = axios.create({ baseURL });  //mode: 'history'
+const router = new VueRouter({ routes });
+
+
+router.beforeEach(async (to, from, next) => {
+    const isPublicRoute = to.matched.some(record => record.meta.public);
+    const isUserLogged = store.getters["user/userIsLogged"];
+
+    if (isPublicRoute === false && isUserLogged === false) {
+        setAuthHttpHeaderToAxios(guard, getToken());
+        try {
+            const response = await guard.get("/user");
+            store.commit("user/SET_USER", response.data.user);
+            next();
+        } catch (error) {
+            router.replace("/login");
+            removeToken();
+        }
+    } else {
+        next();
+    }
+});
+export default router;

@@ -1,3 +1,4 @@
+
 export default {
     namespaced: true,
     state: {
@@ -15,6 +16,16 @@ export default {
           Object.keys(userObj).length === 0 && userObj.constructor === Object;
   
         return userObjectIsEmpty === false;
+      }
+    },
+    actions:{
+      async loginUser({commit},user){
+        try {
+          const response = await this.$axios.post("/login",user);
+          return response 
+        } catch (error) {
+          
+        }
       }
     }
   };
